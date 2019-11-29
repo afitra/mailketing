@@ -5,6 +5,8 @@ const router = require('express').Router(),
 
 
 // router.post('/email/add', emailController.addEmail)
+router.post('/user/email/remove', userController.removeEmail)
+router.post('/email/send', emailController.sendEmail)
 router.post('/user/register', userController.register)
 router.post('/user/login', userController.login)
 router.post('/user/friend/add', userController.addFriend)

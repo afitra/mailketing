@@ -9,6 +9,19 @@ const axios = require('axios')
 
 class userController {
 
+
+
+    static removeEmail(req, res, next) {
+        var validate = jwtDecode(req.headers.token)
+        User.updateOne({ _id: validate.id },
+            { $pull: { friends: { _id: req.body.friendId } } }, { new: true })
+            .then(data => {
+                console.log(data);
+
+            })
+
+    }
+
     static register(req, res, next) {
         const { nama, email, pass } = req.body
 
